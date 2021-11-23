@@ -36,8 +36,8 @@ $(function () {
 });
 
 $(function(){
-  $("#header").load("/views/header.html");
-  $("#footer").load("/views/footer.html");
+  $("#header").load("header");
+  $("#footer").load("footer");
 });
 
 /**

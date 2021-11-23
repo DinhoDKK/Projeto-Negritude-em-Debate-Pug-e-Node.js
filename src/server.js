@@ -55,7 +55,7 @@ const upload = multer({ storage });
 
 const PORTA = process.env.PORT || 3000;
  app.listen(PORTA, function(){
-     console.log("Servidor rodando na porta 8080");
+     console.log("Servidor rodando na porta 3000");
  })
 
  const routes = require('./api/routes');
@@ -112,6 +112,14 @@ app.get('/relatorioalbuns', function(req,resp){
 
 app.get('/login', function(req,resp){
   resp.render('login')
+});
+
+app.get('/header', function(req,resp){
+  resp.render('header')
+});
+
+app.get('/footer', function(req,resp){
+  resp.render('footer')
 });
 
 app.post('/album',function(req, resp){
