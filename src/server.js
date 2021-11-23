@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const multer = require('multer');
 import path from 'path';
+import { criaAlbum } from './api/controllers/AlbumController';
 //const upload = multer({dest: 'uploads/'});
 
 
@@ -151,13 +152,7 @@ app.post('/album',function(req, resp){
     req.body.foto = ${req.body.foto}
     `); 
      */
-    pool.query(`INSERT INTO album
-               (nome, cpf, tel, email, estado, cidade, data_nascimento, nome_responsavel, cpf_responsavel, titulo_foto, nome_fotografo, nome_foto) 
-             VALUES 
-               ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)`, 
-                [req.body.nome, req.body.cpf, req.body.telefone, req.body.email, req.body.estado, req.body.cidade, req.body.dataNascimento, req.body.nomeresp, req.body.cpfresp, req.body.titulo, req.body.nomeFotogra, req.body.foto])
-        .then(res => console.log('ok'))
-       .catch(err => console.log('erro: ' + err));
+    pool.query(criaAlbum(req));
 
    resp.render('album');
 });

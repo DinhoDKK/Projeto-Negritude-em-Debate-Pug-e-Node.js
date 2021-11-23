@@ -101,7 +101,7 @@ class UsuarioController {
 
     static verificaUsuario(usuario){
         if (!usuario){
-            throw new Error("UsuÃ¡rio nÃ£o encontrado");
+            throw new Error("Usua0rio nÃ£o encontrado");
         }
     }
 
