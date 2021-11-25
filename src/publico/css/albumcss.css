@@ -1,8 +1,10 @@
 body {
-  padding: 10px;
-  background-color: peru;
-}
+  background-image: url(/img/bck3.jpg);
 
+}
+p, h1,h2,h3,h4,hr {
+  color: white;
+}
 h2 {
   text-align: center;
 }
@@ -30,4 +32,8 @@ h2 {
   height: 300;
   margin: auto;
   padding: 5%;
+}
+.header {
+  width: 100%;
+  margin-top: 0%;
 }
