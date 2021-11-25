@@ -26,7 +26,7 @@ body
             span.msg-erro.msg-nome
           .mb-3
             label.form-label(for="data") Data de nascimento
-            input.form-control#dataNascimento(type="date", name="dataNascimento", required)
+            input.form-control#dataNascimento(type="date", name="data_nascimento", required)
             span.msg-erro.msg-dataNascimento
             br
           .mb-3
@@ -40,8 +40,8 @@ body
             span.msg-erro.msg-email
           .row
             .col
-              label.form-label(for="cpf") Telefone / Whatsapp
-              input.form-control#telefone(type="phone", name="telefone", required)
+              label.form-label(for="tel") Telefone / Whatsapp
+              input.form-control#telefone(type="phone", name="tel", required)
               span.msg-erro.msg-telefone
             .col
               label.form-label(for="estado") Estado
@@ -137,12 +137,12 @@ body
           .-resp#div-resp
             h5 Para menores de idade:
             .mb-3#div-nome-responsavel
-              label.form-label(for="nomeresp") Nome do responsavél:
-              input.form-control#nomeresp(type="text", name="nomeresp")
+              label.form-label(for="nome_responsavel") Nome do responsavél:
+              input.form-control#nomeresp(type="text", name="nome_responsavel")
               span.msg-erro.msg-nomeresp
             .mb-3#div-cpf-responsavel
-              label.form-label(for="cpfresp") CPF do responsavél
-              input.form-control#cpfresp(type="text", name="cpfresp")
+              label.form-label(for="cpf_responsavel") CPF do responsavél
+              input.form-control#cpfresp(type="text", name="cpf_responsavel")
               span.msg-erro.msg-cpfresp
           br
           hr
@@ -170,15 +170,15 @@ body
         .row
           .col
             label.form-label(for="titulo") Titulo da foto
-            input.form-control#titulo(type="text", name="titulo", required)
+            input.form-control#titulo(type="text", name="titulo_foto", required)
             span.msg-erro.msg-titulo
           .col
             label.form-label(for="nome-fotogra") Nome do(a) Fotográfo(a):
-            input.form-control#nomeFotogra(type="text", name="nomeFotogra", required)
+            input.form-control#nomeFotogra(type="text", name="nome_fotografo", required)
             span.msg-erro.msg-nomeFotogra
         .mb-3
           label.form-label(for="foto") Foto
-          input.form-control#foto(type="file", name="foto", required)
+          input.form-control#foto(type="file", name="nome_foto", required)
           span.msg-erro.msg-foto
         .row
           .col
