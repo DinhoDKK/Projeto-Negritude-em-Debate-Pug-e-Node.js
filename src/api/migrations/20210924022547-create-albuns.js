@@ -45,6 +45,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       data_autorizacao: {
+        allowNull: false,
         type: Sequelize.DATE
       },
       createdAt: {

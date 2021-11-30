@@ -13,7 +13,7 @@ import { criaAlbum } from './api/controllers/AlbumController';
  * filename: permmite definir o nome do arquivo
  */
 
- const storage = multer.diskStorage({
+const storage = multer.diskStorage({
   destination: function(req, file, cb){
     //req = requisiçao
     //file = arquivvo
@@ -74,7 +74,7 @@ app.use('/popperjs', express.static('./node_modules/@popperjs/core/dist/umd'));
 app.use('/jquery', express.static('./node_modules/jquery/dist'));
 
 // requisição - upload de arquivos
-app.post('/uploadFoto',upload.single('foto'), function(req,resp){
+app.post('/uploadFoto',upload.single('nomeFoto'), function(req,resp){
   resp.end();
 });
 
@@ -124,35 +124,8 @@ app.get('/footer', function(req,resp){
 });
 
 app.post('/album',function(req, resp){
-  
-/**
- * Configurações Sequelize
- * 
- */
 
-/**
- * Configuração do parser para requisições post
- */
- 
- 
-
-    //Conferir dados da requisição
-    /* console.log(`
-    req.body.nome = ${req.body.nome}
-    req.body.cpf = ${req.body.cpf}
-    req.body.telefone = ${req.body.telWhats}
-    req.body.email = ${req.body.email}
-    req.body.estado = ${req.body.estado}
-    req.body.cidade = ${req.body.cidade}
-    req.body.dataNascimento = ${req.body.dataNascimento}
-    req.body.nomeresp = ${req.body.nomeresp}
-    req.body.cpfresp = ${req.body.cpfresp}
-    req.body.titulo = ${req.body.titulo}
-    req.body.nomeFotogra = ${req.body.nomeFotogra}
-    req.body.foto = ${req.body.foto}
-    `); 
-     */
-    pool.query(criaAlbum(req));
+    pool.query(criaAlbum(req)).catch(err => console.log('erro: ' + err));;
 
    resp.render('album');
 });

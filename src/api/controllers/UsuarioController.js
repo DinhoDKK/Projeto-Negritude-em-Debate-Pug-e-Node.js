@@ -119,8 +119,8 @@ class UsuarioController {
             const usuario = await UsuarioController.pegaUmUsuarioPorEmail(email);
             UsuarioController.verificaUsuario(usuario);
             await UsuarioController.verificaSenha(senha,usuario.senha_hash);
-            const token = jwt.sign({ id: usuario.id }, process.env.CHAVE_JWT, { expiresIn: '1s' });
-            res.set('Authorization', token);
+           // const token = jwt.sign({ id: usuario.id }, process.env.CHAVE_JWT, { expiresIn: '1s' });
+            //res.set('Authorization', token);
             return res.status(200).json(usuario); 
         } catch (error) {
             return res.status(401).json(error.message);

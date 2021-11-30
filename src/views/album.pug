@@ -15,7 +15,7 @@ body
     br
     h2 Álbum Digital
     hr
-  form#dataForm(name="dataForm", action="album", method="POST", onsubmit="return validarFormulario()")
+  form#dataForm(name="dataForm", action="/album", method="POST", onsubmit="return validarFormulario()")
     .form-album
     .div-tab
       .-tab#dados-pessoais
@@ -198,6 +198,6 @@ body
         br
         .container.d-flex.justify-content-around.div-botao
           button.btn.btn-primary(type="submit", onclick="validarFormulario()") Enviar
-form#fileForm(action="/uploadFoto", method="POST", enctype="multipart/form-data", style="visibility: hidden;")
+form#fileForm(action="/uploadFoto", method="post", encType="multipart/form-data", style="visibility: hidden;")
   input(type="submit")
 #footer
