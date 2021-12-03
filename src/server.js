@@ -74,8 +74,9 @@ app.use('/popperjs', express.static('./node_modules/@popperjs/core/dist/umd'));
 app.use('/jquery', express.static('./node_modules/jquery/dist'));
 
 // requisição - upload de arquivos
-app.post('/uploadFoto',upload.single('nomeFoto'), function(req,resp){
-  resp.end();
+app.post('/uploadFoto',upload.single('nome_foto'), function(req,resp){
+ console.log("Erro na foto:");
+ resp.end();
 });
 
 /**

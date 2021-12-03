@@ -40,39 +40,4 @@ $(function(){
   $("#footer").load("footer");
 });
 
-/**
- * Validações no formulário HTML para garantir integridade antes da submissão do formulario
- */
-function validarFormulario(){
-  //inserir as validações aqui e SE estiver tudo ok, chama a função de upload. 
-  //Isso para garantir que o upload só acontecerá após o preenchimento de todo o formulário.
-  let validacaoOK = true;
-  if (validacaoOK){
-    uploadFile();
-    return true;
-  }
-  return false;
-}
-
-/**
- * Função assíncrona com AJAX para realizar upload do arquivo (foto)
- */
-function uploadFile() {
-  //let arquivo = $(nomeFoto).val().split(/(\\|\/)/g).pop();
-  $('#foto').clone().appendTo("#fileForm");
-
-  let myForm = document.getElementById('fileForm');
-  let formDataFile = new FormData(myForm);
-
-  $.ajax({
-    url: '/uploadFoto', // Url do lado server que vai receber o arquivo
-    data: formDataFile,
-    processData: false,
-    contentType: false,
-    type: 'POST',
-    success: function (data) {
-      //retorno ao usuário depois da resposta do servidor
-    }
-  });
-}
 
