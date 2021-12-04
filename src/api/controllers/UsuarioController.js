@@ -1,5 +1,6 @@
 const database = require('../models');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 class UsuarioController {
 
@@ -39,11 +40,13 @@ class UsuarioController {
     static async criaUsuario(req, res) {
         const novoUsuario = req.body;
         try{
+
             UsuarioController.validaSenha(novoUsuario.senha);
             const senhaHash = await UsuarioController.gerarSenhaHash(novoUsuario.senha);
             delete novoUsuario.senha;
             novoUsuario["senha_hash"] = senhaHash;
             const novoUsuarioCriado = await database.Usuarios.create(novoUsuario);
+
             return res.status(200).json(novoUsuarioCriado);
         } catch (error) {
             return res.status(500).json(error.message);
@@ -86,31 +89,17 @@ class UsuarioController {
         }
     }
 
-    static async pegaUmUsuarioPorEmail(email) {
-        try{
-            const usuario = await database.Usuarios.findOne( { 
-                where: { 
-                    email: email
-                } 
-            });
-            return usuario;
-        } catch (error) {
-            throw error;
-        }
-    }
-
     static verificaUsuario(usuario){
         if (!usuario){
-            throw new Error("Usua0rio nÃ£o encontrado");
+            throw new Error("Usuário não encontrado");
         }
     }
 
     static async verificaSenha(senha, senhaHash){
         const senhaValida = await bcrypt.compare(senha, senhaHash);
         if (!senhaValida)
-            throw new Error("Senha invalida!");
+            throw new Error("Senha inválida!");
     }
-
 
     static async login(req, res) {
         const { email } = req.body;
@@ -119,14 +108,13 @@ class UsuarioController {
             const usuario = await UsuarioController.pegaUmUsuarioPorEmail(email);
             UsuarioController.verificaUsuario(usuario);
             await UsuarioController.verificaSenha(senha,usuario.senha_hash);
-           // const token = jwt.sign({ id: usuario.id }, process.env.CHAVE_JWT, { expiresIn: '1s' });
-            //res.set('Authorization', token);
+            const token = jwt.sign({ id: usuario.id }, process.env.CHAVE_JWT, { expiresIn: '15m' });
+            res.set('Authorization', token);
             return res.status(200).json(usuario); 
         } catch (error) {
             return res.status(401).json(error.message);
         }
     }
-
 
 }
 

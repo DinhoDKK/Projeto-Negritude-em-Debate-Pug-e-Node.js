@@ -36,9 +36,9 @@ const database = require('../models');
         console.log(req.body);
         try{
             const novoAlbumCriado = await database.Albuns.create(novoAlbum);
-            return res.status(200).json(novoAlbumCriado);
+            return novoAlbumCriado;
         } catch (error) {
-            return res.status(500).json(error.message);
+            return error.message;
         }
     }
 
