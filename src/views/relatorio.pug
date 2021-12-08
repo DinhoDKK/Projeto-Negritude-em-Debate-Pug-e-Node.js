@@ -12,41 +12,59 @@ body
 #header
 br
 h2 Relatorio dos albuns
- hr
-table.table.table-hover.table-bordered.border-primary.table-responsive
- thead.table-primary
-    tr
-        th Nome
-        th CPF
-        th Telefone 
-        th email 
-        th Estado 
-        th Cidade 
-        th Data de Nascimento 
-        th Titulo da Foto 
-        th Nome do Fotografo(a)
-        th Nome da Foto 
-        th Nome do Responsavel 
-        th CPF do Responsavel 
-        th Data de Autorização 
- tbody 
-        each Albuns in todosOsAlbuns
-           
-            tr 
-                td #{Albuns.nome}
-                td #{Albuns.cpf}
-                td #{Albuns.tel}
-                td #{Albuns.email}
-                td #{Albuns.estado}
-                td #{Albuns.cidade}
-                td #{Albuns.data_nascimento}
-                td #{Albuns.titulo_foto}
-                td #{Albuns.nome_fotografo}
-                td         
-                    img(src='/uploads/'+Albuns.nome_foto) 
-                td #{Albuns.nome_responsavel}
-                td #{Albuns.cpf_responsavel}
-                td #{Albuns.data_autorizacao}
+        .relatorio
+          .col-md-4 
+            table.table
+                thead.table-dark
+                 each Albuns in todosOsAlbuns
+                    tr
+                        
+                        th(colspan='2')
+                            img(src='/uploads/'+Albuns.nome_foto, width='300', height='200') 
+                    tr 
+                        th(colspan='2') Informações do Album #{Albuns.id}         
+                    tr 
+                        th Nome
+                        td #{Albuns.nome}
+                    tr 
+                        th CPF 
+                        td #{Albuns.cpf}
+                    tr 
+                        th Telefone 
+                        td #{Albuns.tel}
+                    tr
+                        th Email 
+                        td #{Albuns.email}
+                    tr 
+                        th Estado 
+                        td #{Albuns.estado}
+                    tr
+                        th Cidade 
+                        td #{Albuns.cidade}
+                    tr 
+                        th Data de Nascimento 
+                        td #{Albuns.data_nascimento}
+                    tr 
+                        th Titulo da Foto 
+                        td #{Albuns.titulo_foto}
+                    tr 
+                        th Nome do Fotografo(a)
+                        td #{Albuns.nome_fotografo} 
+                    tr
+                        th Nome da Foto 
+                        td 
+                    tr
+                        th Nome do Responsavel 
+                        td #{Albuns.nome_responsavel}
+                    tr
+                        th CPF do Responsavel 
+                        td #{Albuns.cpf_responsavel}
+                    tr 
+                        th Data de Autorização 
+                        td #{Albuns.data_autorizacao}
+
+            
+   
           
 
 #footer
