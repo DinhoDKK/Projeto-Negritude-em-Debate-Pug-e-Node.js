@@ -39,4 +39,5 @@ h2 {
 }
 .relatorio {
   margin: auto;
+  display: inline-flex;
 }

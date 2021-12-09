@@ -25,7 +25,7 @@ const database = require('../models');
                     id: Number(id) 
                 } 
             });
-            return res.status(200).json(umAlbum);
+            res.render('relatorio', { umAlbum });
         } catch (error) {
             return res.status(500).json(error.message);
         }

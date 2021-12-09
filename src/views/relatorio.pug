@@ -12,15 +12,16 @@ body
 #header
 br
 h2 Relatorio dos albuns
-        .relatorio
-          .col-md-4 
-            table.table
-                thead.table-dark
+   .container
+   .relatorio
+    .row
+      .col-md-6
+       table.table
+                thead.table-warning
                  each Albuns in todosOsAlbuns
                     tr
-                        
                         th(colspan='2')
-                            img(src='/uploads/'+Albuns.nome_foto, width='300', height='200') 
+                            img(src='/uploads/'+Albuns.nome_foto, width='600', height='350') 
                     tr 
                         th(colspan='2') Informações do Album #{Albuns.id}         
                     tr 
@@ -52,7 +53,7 @@ h2 Relatorio dos albuns
                         td #{Albuns.nome_fotografo} 
                     tr
                         th Nome da Foto 
-                        td 
+                        td #{Albuns.nome_foto} 
                     tr
                         th Nome do Responsavel 
                         td #{Albuns.nome_responsavel}
@@ -63,7 +64,6 @@ h2 Relatorio dos albuns
                         th Data de Autorização 
                         td #{Albuns.data_autorizacao}
 
-            
    
           
 

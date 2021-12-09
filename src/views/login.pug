@@ -7,6 +7,7 @@ script(src="/bsjs/bootstrap.min.js")
 script(src="/popperjs/popper.min.js")
 script(src="/publico/js/form-album.js")
 script(src="/publico/js/form-validation.js")
+script(src="/publico/js/login.js")
 title Login
 #header
 body 
@@ -19,11 +20,11 @@ body
     div
       .mb-3
       label(for="login")
-      input#login.form-control(type="text", name="login", placeholder="Login")
+      input#login.form-control(type="text", name="email", placeholder="Email")
     div
       .mb-3
       label(for="senha")
       input#senha.form-control(type="password", name="senha", placeholder="Senha")
     .div-botao
-      a.btn.btn-primary(type="submit", value="Logar" href='albuns') Logar
+      a.btn.btn-primary(type="submit", name="enviar" id="enviar" value="Logar" href='albuns') Logar
 #footer
